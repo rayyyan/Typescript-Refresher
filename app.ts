@@ -10,4 +10,3 @@ const num1 = 5
 const num2 = 2.5
 const printResult = true
 add(num1, num2, printResult)
-console.log(result)
