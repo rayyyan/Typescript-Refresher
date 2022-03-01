@@ -5,5 +5,6 @@ function add(n1: number, n2: number) {
 function printResult(num: number) {
   console.log("Result" + num)
 }
-
-printResult(add(5, 12))
+let combineValues: (a: number, b: number) => number
+combineValues = add
+printResult(combineValues(5, 12))
