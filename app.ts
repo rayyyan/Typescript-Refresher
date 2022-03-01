@@ -1,6 +1,7 @@
-function add(n1: number, n2: number, showResult: boolean) {
+function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+  const result = n1 + n2
   if (showResult) {
-    console.log(n1 + n2)
+    console.log(phrase + result)
   } else {
     return n1 + n2
   }
@@ -9,5 +10,5 @@ function add(n1: number, n2: number, showResult: boolean) {
 const num1 = 5
 const num2 = 2.5
 const printResult = true
-add(num1, num2, printResult)
-console.log(result)
+const phrase = "Result is :"
+add(num1, num2, printResult, phrase)
