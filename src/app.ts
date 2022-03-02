@@ -1,6 +1,6 @@
 class Department {
-  name: string
-  employees: string[] = []
+  public name: string
+  private employees: string[] = []
   constructor(n: string) {
     this.name = n
     //this.employees = e
@@ -12,6 +12,7 @@ class Department {
   addEmplyee(employee: string) {
     this.employees.push(employee)
   }
+
   printEmployeeInfo() {
     console.log(this.employees.length)
     console.log(this.employees)
@@ -20,5 +21,11 @@ class Department {
 const accounting = new Department("rayan")
 accounting.addEmplyee("Rayan")
 accounting.addEmplyee("Abdou")
+
+/*This is not possible with private
+
+ccounting.employees[2] = "Sara"
+
+*/
 accounting.describe()
 console.log(accounting)
