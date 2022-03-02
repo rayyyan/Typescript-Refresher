@@ -10,7 +10,7 @@ class Department {
   describe() {
     console.log(`Department (${this.id}) name is ${this.name}`)
   }
-  addEmplyee(employee: string) {
+  addEmployee(employee: string) {
     this.employees.push(employee)
   }
 
@@ -19,14 +19,38 @@ class Department {
     console.log(this.employees)
   }
 }
-const accounting = new Department("001", "rayan")
-accounting.addEmplyee("Rayan")
-accounting.addEmplyee("Abdou")
+// Inheritance
+class ITDepartment extends Department {
+  admins: string[]
+  constructor(id: string, admins: string[]) {
+    super(id, "IT")
+    this.admins = admins
+  }
+}
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, "Accounting")
+  }
+  addReport(text: string) {
+    this.reports.push(text)
+  }
+  getReports() {
+    console.log(this.reports)
+  }
+}
+const it = new ITDepartment("001", ["Abdou"])
+it.addEmployee("Rayan")
+it.addEmployee("Abdou")
 
 /*This is not possible with private
 
 ccounting.employees[2] = "Sara"
 
 */
-accounting.describe()
-console.log(accounting)
+it.describe()
+console.log(it)
+
+const accounting = new AccountingDepartment("252", [])
+
+accounting.addReport("something is not okay")
+accounting.getReports()
