@@ -28,8 +28,21 @@ class ITDepartment extends Department {
   }
 }
 class AccountingDepartment extends Department {
+  private lastReport: string
+  //Getters & Setters
+  get mostRecentPost() {
+    if (this.lastReport) {
+      return this.lastReport
+    }
+    throw new Error("No report found")
+  }
+  set mostRecentPost(value: string) {
+    this.addReport(value)
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting")
+    this.lastReport = reports[0]
   }
   addEmployee(employee: string) {
     if (employee === "Abdou") {
@@ -39,6 +52,7 @@ class AccountingDepartment extends Department {
   }
   addReport(text: string) {
     this.reports.push(text)
+    this.lastReport = text
   }
   getReports() {
     console.log(this.reports)
@@ -59,6 +73,8 @@ console.log(it)
 const accounting = new AccountingDepartment("252", [])
 accounting.addEmployee("Abdou")
 accounting.addEmployee("Lben")
+accounting.mostRecentPost = "Abdelkaioum"
 accounting.addReport("something is not okay")
+console.log(accounting.mostRecentPost)
 accounting.getReports()
 accounting.printEmployeeInfo()
