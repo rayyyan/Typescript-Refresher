@@ -90,7 +90,7 @@ ccounting.employees[2] = "Sara"
 it.describe()
 console.log(it)
 
-const accounting = new AccountingDepartment("252", [])
+const accounting = AccountingDepartment.getInstance()
 accounting.addEmployee("Abdou")
 accounting.addEmployee("Lben")
 accounting.mostRecentPost = "Abdelkaioum"
