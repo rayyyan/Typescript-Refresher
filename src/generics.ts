@@ -61,3 +61,36 @@ function extractAndConvert<T extends object, U extends keyof T>(
 }
 
 console.log(extractAndConvert({ name: "Abdou" }, "name"))
+
+//generic class
+
+class DataStorage<T> {
+  private data: T[] = []
+  addItem(item: T) {
+    this.data.push(item)
+  }
+  removeItem(item: T) {
+    this.data.splice(this.data.indexOf(item))
+  }
+  getItems() {
+    return [...this.data]
+  }
+}
+
+const textStorage = new DataStorage<string>()
+
+textStorage.addItem("Abdou")
+textStorage.getItems()
+textStorage.removeItem("Abdou")
+
+const numberStorage = new DataStorage<number>()
+
+numberStorage.addItem(1)
+
+const objectStorage = new DataStorage<object>()
+//this doesn't work only works on primitive types
+// objectStorage.addItem({ name: "seddik" })
+// objectStorage.addItem({ name: "rayan" })
+// objectStorage.removeItem({ name: "seddik" })
+// console.log(objectStorage.getItems())
+// console.log(objectStorage)
