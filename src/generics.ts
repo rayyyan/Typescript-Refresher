@@ -29,7 +29,7 @@ const rayan = {
 const job = {
   job: "student",
 }
-function merge<T, Z>(a: T, b: Z) {
+function merge<T extends object, Z extends object | number>(a: T, b: Z) {
   return Object.assign(a, b)
 }
 const merged = merge(rayan, job)
