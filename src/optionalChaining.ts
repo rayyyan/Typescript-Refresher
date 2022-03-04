@@ -5,3 +5,14 @@ const fetchedUserData = {
 }
 
 console.log(fetchedUserData?.job?.title)
+
+// Nullish chaining
+
+const userInput = ""
+
+const storedData = userInput || "DEFAULT" // take DEFAULT
+
+const storedDataTS = userInput ?? "DEFAULT" // take " "
+
+console.log(storedData)
+console.log(storedDataTS)
