@@ -1,4 +1,4 @@
-import houses from "./houses"
+import houses from "./housses"
 
 interface House {
   name: string
