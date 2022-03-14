@@ -11,3 +11,10 @@ const [tate, setState] = state(4)
 console.log(tate())
 setState(52)
 console.log(tate())
+
+//Null or string
+
+const [mate, setMate] = state<string | null>(null)
+console.log(mate())
+setMate("string")
+console.log(mate())
