@@ -7,3 +7,19 @@ function addThree(
 }
 
 console.log(addThree([0, 100, 0], [10, 20, 30]))
+
+//
+const simpleState = (init: string): [() => string, (v: string) => void] => {
+  let str: string = init
+  return [
+    () => str,
+    (v: string) => {
+      str = v
+    },
+  ]
+}
+
+const [strGetter, strSetter] = simpleState("Hi")
+console.log(strGetter())
+strSetter("mama")
+console.log(strGetter())
