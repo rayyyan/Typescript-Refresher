@@ -22,3 +22,24 @@ console.log(
 
 ///Required
 type RequiredMyUser = Required<MyUser>
+
+//Pick
+
+type justEmailAndName = Pick<MyUser, "email" | "name">
+
+const mapById = (users: MyUser[]): Record<string, Omit<MyUser, "id">> => {
+  return users.reduce((a, v) => {
+    const { id, ...rest } = v
+    return {
+      ...a,
+      [id]: rest,
+    }
+  }, {})
+}
+
+console.log(
+  mapById([
+    { id: "foo", name: "Mr. Foo" },
+    { id: "baz", name: "Mrs.Baz" },
+  ])
+)
