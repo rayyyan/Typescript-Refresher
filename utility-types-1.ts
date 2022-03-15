@@ -19,3 +19,6 @@ console.log(
     }
   )
 )
+
+///Required
+type RequiredMyUser = Required<MyUser>
