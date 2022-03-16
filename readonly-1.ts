@@ -19,3 +19,7 @@ function makeCoordinate(
   return [x, y, z]
 }
 const c1 = makeCoordinate(10, 20, 30)
+
+//
+const reallyConst = <const>[1, 2, 3]
+const reallyConstTwo = [1, 2, 3] as const
