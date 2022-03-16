@@ -11,3 +11,11 @@ function makeCat(name: string, breed: string): ReadOnlyCat {
 }
 const usul = makeCat("Usul", "Tabby")
 //
+function makeCoordinate(
+  x: number,
+  y: number,
+  z: number
+): readonly [number, number, number] {
+  return [x, y, z]
+}
+const c1 = makeCoordinate(10, 20, 30)
