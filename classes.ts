@@ -7,7 +7,7 @@ interface DataBase {
 
 class InMemoryDb implements DataBase {
   constructor() {}
-  db: Record<string, string> = {}
+  private db: Record<string, string> = {}
   get(id: string): string {
     return this.db[id]
   }
