@@ -21,10 +21,10 @@ function rollDice(dice: 1 | 2 | 3): number {
 }
 console.log(rollDice(3))
 //String literal
-function sendEvent(name: "addToCart", data: { productId: number }): void
-function sendEvent(name: "checkout", data: { cartCount: number }): void
-function sendEvent(name: string, data: unknown): void {
+function sendEvents(name: "addToCart", data: { productId: number }): void
+function sendEvents(name: "checkout", data: { cartCount: number }): void
+function sendEvents(name: string, data: unknown): void {
   console.log(`${name}: ${JSON.stringify(data)}`)
 }
 
-sendEvent("addToCart", { productId: 12345855 })
+sendEvents("addToCart", { productId: 12345855 })
