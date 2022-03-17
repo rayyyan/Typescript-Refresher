@@ -2,14 +2,20 @@
 
 interface DataBase {
   get(id: string): string
-  set(id: string, value: number): void
+  set(id: string, value: string): void
 }
 
 class InMemoryDb implements DataBase {
   constructor() {}
+  db: Record<string, string> = {}
   get(id: string): string {
-    return "hh"
+    return this.db[id]
   }
 
-  set(id: string, value: number): void {}
+  set(id: string, value: string): void {
+    this.db[id] = value
+  }
 }
+const myDb = new InMemoryDb()
+myDb.set("01", "bar")
+console.log(myDb.get("01"))
