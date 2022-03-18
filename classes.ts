@@ -1,20 +1,20 @@
 //Db
 
-interface DataBase {
-  get(id: string): string
-  set(id: string, value: string): void
+interface DataBase<T> {
+  get(id: string): T
+  set(id: string, value: T): void
 }
 interface Persistable {
   saveToString(): string
   restoreFromString(storedState: string): void
 }
-class InMemoryDb implements DataBase {
+class InMemoryDb<T> implements DataBase<T> {
   constructor() {}
-  protected db: Record<string, string> = {}
-  get(id: string): string {
+  protected db: Record<string, T> = {}
+  get(id: string): T {
     return this.db[id]
   }
-  set(id: string, value: string): void {
+  set(id: string, value: T): void {
     this.db[id] = value
   }
 }
