@@ -19,7 +19,7 @@ class InMemoryDb<T> implements DataBase<T> {
   }
 }
 //Persistable in memory Db
-class PersistableMemoryDb extends InMemoryDb implements Persistable {
+class PersistableMemoryDb<T> extends InMemoryDb<T> implements Persistable {
   saveToString(): string {
     return JSON.stringify(this.db)
   }
@@ -27,6 +27,6 @@ class PersistableMemoryDb extends InMemoryDb implements Persistable {
     this.db = JSON.parse(storedState)
   }
 }
-const myDb = new InMemoryDb()
+const myDb = new InMemoryDb<string>()
 myDb.set("01", "bar")
 console.log(myDb.get("01"))
