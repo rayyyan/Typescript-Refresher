@@ -1,25 +1,29 @@
 //Db
 
-interface DataBase<T> {
-  get(id: string): T
-  set(id: string, value: T): void
+interface DataBase<T, K> {
+  get(id: K): T
+  set(id: K, value: T): void
 }
 interface Persistable {
   saveToString(): string
   restoreFromString(storedState: string): void
 }
-class InMemoryDb<T> implements DataBase<T> {
-  constructor() {}
-  protected db: Record<string, T> = {}
-  get(id: string): T {
+type DBKeyType = string | number | symbol
+class InMemoryDb<T, K extends DBKeyType> implements DataBase<T, K> {
+  protected db: Record<K, T> = {} as Record<K, T>
+
+  get(id: K): T {
     return this.db[id]
   }
-  set(id: string, value: T): void {
+  set(id: K, value: T): void {
     this.db[id] = value
   }
 }
 //Persistable in memory Db
-class PersistableMemoryDb<T> extends InMemoryDb<T> implements Persistable {
+class PersistableMemoryDb<T, K extends DBKeyType>
+  extends InMemoryDb<T, K>
+  implements Persistable
+{
   saveToString(): string {
     return JSON.stringify(this.db)
   }
@@ -27,6 +31,6 @@ class PersistableMemoryDb<T> extends InMemoryDb<T> implements Persistable {
     this.db = JSON.parse(storedState)
   }
 }
-const myDb = new InMemoryDb<string>()
+const myDb = new InMemoryDb<string, string>()
 myDb.set("01", "bar")
 console.log(myDb.get("01"))
