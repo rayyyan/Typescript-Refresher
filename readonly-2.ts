@@ -1,3 +1,5 @@
 class Doggy {
-  constructor(public name: string, public age: number) {}
+  constructor(public readonly name: string, public readonly age: number) {}
 }
+const lgg = new Doggy("Lg", 13)
+console.log(lgg.name)
