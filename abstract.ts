@@ -1,8 +1,7 @@
-class StreetFighter {
+abstract class StreetFighter {
   constructor() {}
   move() {}
   fight() {}
-  getSpecialAttack(): string {
-    return ""
-  }
+  abstract getSpecialAttack(): string
 }
+const ryu = new StreetFighter()
