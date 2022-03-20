@@ -12,7 +12,11 @@ class DogList {
   static addDog(dog: Doggy) {
     DogList.instance.doggies.push(dog)
   }
+  getDogs() {
+    return this.doggies
+  }
 }
 DogList.addDog(lgg)
+console.log(DogList.instance.getDogs())
 
 //const dl = new DogList()
