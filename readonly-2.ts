@@ -3,3 +3,9 @@ class Doggy {
 }
 const lgg = new Doggy("Lg", 13)
 console.log(lgg.name)
+
+class DogList {
+  private doggies: Doggy[] = []
+
+  public instance: DogList = new DogList()
+}
