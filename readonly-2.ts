@@ -9,7 +9,10 @@ class DogList {
 
   static instance: DogList = new DogList()
   private constructor() {}
+  static addDog(dog: Doggy) {
+    DogList.instance.doggies.push(dog)
+  }
 }
-DogList.instance
+DogList.addDog(lgg)
 
-const dl = new DogList()
+//const dl = new DogList()
