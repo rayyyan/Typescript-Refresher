@@ -5,7 +5,7 @@ abstract class StreetFighter {
   abstract getSpecialAttack(): string
 }
 //Cant instantiate
-const ryu = new StreetFighter()
+const ryuCant = new StreetFighter()
 
 class Ryu extends StreetFighter {
   move() {}
@@ -15,3 +15,6 @@ class Ryu extends StreetFighter {
     return "Hadoken"
   }
 }
+const ryu = new Ryu()
+
+console.log(ryu.getSpecialAttack())
