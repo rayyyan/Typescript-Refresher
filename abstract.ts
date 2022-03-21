@@ -1,15 +1,15 @@
 abstract class StreetFighter {
   constructor() {}
   move() {}
-  fight() {}
+  fight() {
+    console.log(`atack with ${this.getSpecialAttack()}`)
+  }
   abstract getSpecialAttack(): string
 }
 //Cant instantiate
-const ryuCant = new StreetFighter()
+//const ryuCant = new StreetFighter()
 
 class Ryu extends StreetFighter {
-  move() {}
-  fight() {}
   //when inherits a class that have abstract method it means that it's required
   getSpecialAttack(): string {
     return "Hadoken"
@@ -17,4 +17,4 @@ class Ryu extends StreetFighter {
 }
 const ryu = new Ryu()
 
-console.log(ryu.getSpecialAttack())
+ryu.fight()
