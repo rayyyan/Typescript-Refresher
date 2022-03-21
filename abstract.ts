@@ -4,5 +4,14 @@ abstract class StreetFighter {
   fight() {}
   abstract getSpecialAttack(): string
 }
-//Cant instanciate
+//Cant instantiate
 const ryu = new StreetFighter()
+
+class Ryu extends StreetFighter {
+  move() {}
+  fight() {}
+  //when inherits a class that have abstract method it means that it's required
+  getSpecialAttack(): string {
+    return "Hadoken"
+  }
+}
