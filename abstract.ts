@@ -4,4 +4,5 @@ abstract class StreetFighter {
   fight() {}
   abstract getSpecialAttack(): string
 }
+//Cant instanciate
 const ryu = new StreetFighter()
