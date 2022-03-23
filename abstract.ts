@@ -2,7 +2,7 @@ abstract class StreetFighter {
   constructor() {}
   move() {}
   fight() {
-    console.log(`${this.getName()} atack with ${this.getSpecialAttack()}`)
+    console.log(`${this.getName()} attacks with ${this.getSpecialAttack()}`)
   }
   abstract getSpecialAttack(): string
   abstract getName(): string
