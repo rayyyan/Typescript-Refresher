@@ -61,5 +61,5 @@ function Dumpable<
 
 const DumpableStringDatabase = Dumpable(StringDatabase)
 const sdb2 = new DumpableStringDatabase()
-sdb2.set("a", "Hello")
+sdb2.set("Rayan", "Hello Rayan")
 sdb2.dump()
