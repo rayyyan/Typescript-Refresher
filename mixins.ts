@@ -44,3 +44,22 @@ function createSimpleMemoryDatabase<T>() {
 const StringDatabase = createSimpleMemoryDatabase<string>()
 const sdb1 = new StringDatabase()
 sdb1.set("a", "Hello")
+
+//create a mixin
+type Constructor<T> = new (...args: any[]) => T
+function Dumpable<
+  T extends Constructor<{
+    getObject(): object
+  }>
+>(Base: T) {
+  return class Dumpable extends Base {
+    dump() {
+      console.log(this.getObject)
+    }
+  }
+}
+
+const DumpableStringDatabase = Dumpable(StringDatabase)
+const sdb2 = new DumpableStringDatabase()
+sdb2.set("a", "Hello")
+sdb2.dump()
