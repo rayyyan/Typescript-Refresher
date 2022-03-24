@@ -47,6 +47,10 @@ sdb1.set("a", "Hello")
 
 //create a mixin
 type Constructor<T> = new (...args: any[]) => T
+
+//constructor has a new "a special kind of function that create a " this or object
+
+//T extends a Constructor type  that must have get object
 function Dumpable<
   T extends Constructor<{
     getObject(): object
@@ -62,4 +66,5 @@ function Dumpable<
 const DumpableStringDatabase = Dumpable(StringDatabase)
 const sdb2 = new DumpableStringDatabase()
 sdb2.set("Rayan", "Hello Rayan")
+
 sdb2.dump()
